@@ -10,6 +10,12 @@
 2 sticks + 3 planks = axe
 """
 
+def craft(craftItem, craftQ):
+    print(craftItem, craftQ)
+    return
+
+
+
 def startGame():
     #start
     print("##################")
@@ -17,14 +23,19 @@ def startGame():
     print("##################")
 
     continueGame = "y"
+    craftTimes = 0
 
     #main loop
     while (continueGame == "y"):
-        print("Game continued")
-        continueGame = input("Continue another game? (y/n) : ")
+        craftTimes+=1
+        item = str(input("What item do you want to craft? : "))
+        q = int(input("How many do you want to craft? : "))
+        craft(item, q)
+        continueGame = input("Do you want to make another craft? (y/n) : ")
     
     # end game
     print("##################")
+    print(f"You crafted {craftTimes} times!")
     print("Game Ended")
     print("##################")
 
