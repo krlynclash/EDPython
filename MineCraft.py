@@ -1,4 +1,4 @@
-#Cheat Chear
+#Cheat Cheat
 """
 1 wood = 4 planks
 1 plank = 2 sticks
@@ -10,8 +10,41 @@
 2 sticks + 3 planks = axe
 """
 
+#global
+WOOD = "wood"
+PLANK = "plank"
+TABLE = "table"
+STICK = "stick"
+
+SWORD = "sword"
+SHOVEL = "shovel"
+HOE = "hoe"
+AXE = "axe"
+
+VALIDITEMS = [WOOD, PLANK, TABLE, STICK, SWORD, SHOVEL, HOE, AXE]
+
+
+
 def craft(craftItem, craftQ):
-    print(craftItem, craftQ)
+    if (craftItem in VALIDITEMS):
+        if (craftItem == WOOD):
+            pass
+        elif (craftItem == PLANK):
+            print(f"You need {craftQ/4} wood")
+        elif (craftItem == STICK):
+            print(f"You need {craftQ/2} plank")
+        elif (craftItem == TABLE):
+            print(f"You need {craftQ*4} plank")
+        elif (craftItem == SWORD):
+            print(f"You need {craftQ} stick {craftQ*2} plank")
+        elif (craftItem == SHOVEL):
+            print(f"You need {craftQ*2} stick {craftQ} plank")
+        elif (craftItem == HOE):
+            print(f"You need {craftQ*2} stick {craftQ*2} plank")
+        elif (craftItem == AXE):
+            print(f"You need {craftQ*2} stick {craftQ*3} plank")
+    else:
+        print("This is NOT a valid item")
     return
 
 
@@ -28,7 +61,7 @@ def startGame():
     #main loop
     while (continueGame == "y"):
         craftTimes+=1
-        item = str(input("What item do you want to craft? : "))
+        item = str(input(f"What item do you want to craft? {VALIDITEMS} : "))
         q = int(input("How many do you want to craft? : "))
         craft(item, q)
         continueGame = input("Do you want to make another craft? (y/n) : ")
