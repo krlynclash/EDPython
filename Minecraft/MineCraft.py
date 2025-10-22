@@ -25,14 +25,22 @@ AXE = "axe"
 
 VALIDITEMS = [WOOD, PLANK, TABLE, STICK, SWORD, SHOVEL, HOE, AXE]
 
-
+inventory = [WOOD]*32
 
 def craft(craftItem, craftQ):
     if (craftItem in VALIDITEMS):
         if (craftItem == WOOD):
             pass
+        
         elif (craftItem == PLANK):
             print(f"You need {craftQ/4} wood")
+            count = 0
+            while count < craftQ:
+                inventory.append("plank")
+            count = 0
+            while count < craftQ/4:
+                inventory.remove("wood")
+
         elif (craftItem == STICK):
             print(f"You need {craftQ/2} plank")
         elif (craftItem == TABLE):
@@ -50,11 +58,21 @@ def craft(craftItem, craftQ):
     return
 
 
+def checkInventory():
+    result = {}
+    for item in inventory:
+        if item in result:
+            result[item] += 1
+        else:
+            result[item] = 1
+    return result
+
 
 def startGame():
     #start
     print("##################")
     print("Game Started")
+    print(f"Current inventory: {checkInventory}")
     print("##################")
 
     continueGame = "y"
@@ -66,11 +84,13 @@ def startGame():
         item = str(input(f"What item do you want to craft? {VALIDITEMS} : "))
         q = int(input("How many do you want to craft? : "))
         craft(item, q)
+        print(f"Current inventory: {checkInventory}")
         continueGame = input("Do you want to make another craft? (y/n) : ")
     
     # end game
     print("##################")
     print(f"You crafted {craftTimes} times!")
+    print(f"Current inventory: {checkInventory}")
     print("Game Ended")
     print("##################")
 
