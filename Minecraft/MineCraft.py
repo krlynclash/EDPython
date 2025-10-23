@@ -34,7 +34,7 @@ def craft(craftItem, craftQ):
 
         elif (craftItem == PLANK):
             print(f"You need {craftQ/4} wood")
-            updateInventory(craftQIn, itemRemove, itemAppend)
+            updateInventory(craftQIn, craftQOut, itemRemove, itemAppend)
 
 
         elif (craftItem == STICK):
@@ -45,6 +45,8 @@ def craft(craftItem, craftQ):
 
         elif (craftItem == TABLE):
             print(f"You need {craftQ*4} plank")
+            updateInventory(craftQIn, itemRemove, itemAppend)
+
         elif (craftItem == SWORD):
             print(f"You need {craftQ} stick {craftQ*2} plank")
         elif (craftItem == SHOVEL):
