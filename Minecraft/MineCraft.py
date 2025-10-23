@@ -30,19 +30,19 @@ inventory = [WOOD]*32
 def craft(craftItem, craftQ):
     if (craftItem in VALIDITEMS):
         if (craftItem == WOOD):
-            pass
-        
+            pass        
+
         elif (craftItem == PLANK):
             print(f"You need {craftQ/4} wood")
-            count = 0
-            while count < craftQ:
-                inventory.append("plank")
-            count = 0
-            while count < craftQ/4:
-                inventory.remove("wood")
+            updateInventory(craftQIn, itemRemove, itemAppend)
+
 
         elif (craftItem == STICK):
             print(f"You need {craftQ/2} plank")
+            updateInventory(craftQIn, itemRemove, itemAppend)
+
+
+
         elif (craftItem == TABLE):
             print(f"You need {craftQ*4} plank")
         elif (craftItem == SWORD):
@@ -56,6 +56,23 @@ def craft(craftItem, craftQ):
     else:
         print("This is NOT a valid item")
     return
+
+
+def updateInventory(craftQIn, craftQOut,itemRemove, itemAppend):
+    """
+    craftQIn : this is referring to the item quantity that you want to craft
+    craftQOut : this is referring to the item quantity that you will use to craft
+    itemRemove : this is the item name that you need to use to craft
+    itemAppend : this is the item name that you want to craft
+    """
+    count = 0
+    while count < craftQIn:
+        inventory.append(itemAppend)
+        count+= 1
+    count = 0
+    while count < craftQOut:
+        inventory.remove(itemRemove)
+        count += 1
 
 
 def checkInventory():
