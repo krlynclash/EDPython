@@ -86,11 +86,11 @@ def updateInventory(newCraftedItemQ, newCraftedItem, materialNeededQ1, materialN
         inventory.remove(materialNeeded1)
         count += 1
 
-#this while loop handles the SECOND set of material needed
-count = 0
-while count < materialNeededQ2:
-    inventory.remove(materialNeeded2)
-    count+= 1
+    #this while loop handles the SECOND set of material needed
+    count = 0
+    while count < materialNeededQ2:
+        inventory.remove(materialNeeded2)
+        count+= 1
 
 
 def checkInventory():
