@@ -59,10 +59,15 @@ def craft(craftItem, craftQ):
 
         elif (craftItem == SHOVEL):
             print(f"You need {craftQ*2} stick {craftQ} plank")
+            updateInventory(craftQ, craftItem, craftQ*2, STICK, craftQ, PLANK)
+
         elif (craftItem == HOE):
             print(f"You need {craftQ*2} stick {craftQ*2} plank")
+            updateInventory(craftQ, craftItem, craftQ*2, STICK, craftQ*2, PLANK)
+        
         elif (craftItem == AXE):
             print(f"You need {craftQ*2} stick {craftQ*3} plank")
+            updateInventory(craftQ, craftItem, craftQ*2, STICK, craftQ*3, PLANK)
     else:
         print("This is NOT a valid item")
     return
