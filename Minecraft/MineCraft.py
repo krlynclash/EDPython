@@ -55,7 +55,8 @@ def craft(craftItem, craftQ):
 
         elif (craftItem == SWORD):
             print(f"You need {craftQ} stick {craftQ*2} plank")
-        
+            updateInventory(craftQ, craftItem, craftQ, STICK, craftQ*2, PLANK)
+
         elif (craftItem == SHOVEL):
             print(f"You need {craftQ*2} stick {craftQ} plank")
         elif (craftItem == HOE):
