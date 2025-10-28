@@ -17,13 +17,16 @@ WOOD = "wood"
 PLANK = "plank"
 TABLE = "table"
 STICK = "stick"
+FENCE = "fence"
 
 SWORD = "sword"
 SHOVEL = "shovel"
 HOE = "hoe"
 AXE = "axe"
+BOWL = "bowl"
 
-VALIDITEMS = [WOOD, PLANK, TABLE, STICK, SWORD, SHOVEL, HOE, AXE]
+
+VALIDITEMS = [WOOD, PLANK, TABLE, STICK, SWORD, SHOVEL, HOE, AXE, FENCE, BOWL]
 
 inventory = [WOOD]*32
 
@@ -68,6 +71,13 @@ def craft(craftItem, craftQ):
         elif (craftItem == AXE):
             print(f"You need {craftQ*2} stick {craftQ*3} plank")
             updateInventory(craftQ, craftItem, craftQ*2, STICK, craftQ*3, PLANK)
+        
+        elif (craftItem == FENCE):
+            print(f"You need {craftQ*2} stick {craftQ*4} plank")
+            updateInventory(craftQ, craftItem, craftQ*2, STICK, craftQ*4, PLANK)
+        elif (craftItem == BOWL):
+            print(f"You need {craftQ/4} plank")
+            updateInventory(craftQ, craftItem, craftQ/4, BOWL)
     else:
         print("This is NOT a valid item")
     return
