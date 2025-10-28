@@ -34,21 +34,28 @@ def craft(craftItem, craftQ):
 
         elif (craftItem == PLANK):
             print(f"You need {craftQ/4} wood")
-            updateInventory(craftQIn, craftQOut, itemRemove, itemAppend)
-
+            #what if craftQ = 6?????????
+            #6/4 = 1.5
+            materialneededQ = craftQ//4
+            newCraftedItemQ = materialneededQ*4
+            updateInventory(newCraftedItemQ, craftItem, materialneededQ, WOOD)
 
         elif (craftItem == STICK):
             print(f"You need {craftQ/2} plank")
-            updateInventory(craftQIn, itemRemove, itemAppend)
-
-
+            #what if craftQ = 3?
+            # 3/2 = 1.5
+            materialneededQ = craftQ//2
+            newCraftedItemQ = materialneededQ*2
+            updateInventory(newCraftedItemQ, craftItem, materialneededQ, PLANK)
 
         elif (craftItem == TABLE):
             print(f"You need {craftQ*4} plank")
-            updateInventory(craftQIn, itemRemove, itemAppend)
+            updateInventory(craftQ, craftItem, craftQ*4, PLANK)
+
 
         elif (craftItem == SWORD):
             print(f"You need {craftQ} stick {craftQ*2} plank")
+        
         elif (craftItem == SHOVEL):
             print(f"You need {craftQ*2} stick {craftQ} plank")
         elif (craftItem == HOE):
@@ -60,21 +67,30 @@ def craft(craftItem, craftQ):
     return
 
 
-def updateInventory(craftQIn, craftQOut,itemRemove, itemAppend):
+def updateInventory(newCraftedItemQ, newCraftedItem, materialNeededQ1, materialNeeded1, materialNeededQ2, materialNeeded2):
     """
     craftQIn : this is referring to the item quantity that you want to craft
     craftQOut : this is referring to the item quantity that you will use to craft
     itemRemove : this is the item name that you need to use to craft
     itemAppend : this is the item name that you want to craft
     """
+    #thid while loop handles the newly crafted item
     count = 0
-    while count < craftQIn:
-        inventory.append(itemAppend)
+    while count < newCraftedItemQ:
+        inventory.append(newCraftedItem)
         count+= 1
+
+    # this while loop handles the first set of materials needed 
     count = 0
-    while count < craftQOut:
-        inventory.remove(itemRemove)
+    while count < materialNeededQ1:
+        inventory.remove(materialNeeded1)
         count += 1
+
+#this while loop handles the SECOND set of material needed
+count = 0
+while count < materialNeededQ2:
+    inventory.remove(materialNeeded2)
+    count+= 1
 
 
 def checkInventory():
@@ -91,7 +107,7 @@ def startGame():
     #start
     print("##################")
     print("Game Started")
-    print(f"Current inventory: {checkInventory}")
+    print(f"Current inventory: {checkInventory()}")
     print("##################")
 
     continueGame = "y"
@@ -103,13 +119,13 @@ def startGame():
         item = str(input(f"What item do you want to craft? {VALIDITEMS} : "))
         q = int(input("How many do you want to craft? : "))
         craft(item, q)
-        print(f"Current inventory: {checkInventory}")
+        print(f"Current inventory: {checkInventory()}")
         continueGame = input("Do you want to make another craft? (y/n) : ")
     
     # end game
     print("##################")
     print(f"You crafted {craftTimes} times!")
-    print(f"Current inventory: {checkInventory}")
+    print(f"Current inventory: {checkInventory()}")
     print("Game Ended")
     print("##################")
 
