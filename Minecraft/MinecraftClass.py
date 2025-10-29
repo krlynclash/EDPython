@@ -92,7 +92,7 @@ class MineCraftGame:
         return
 
 
-    def updateInventory(newCraftedItemQ, newCraftedItem, materialNeededQ1, materialNeeded1, materialNeededQ2, materialNeeded2):
+    def updateInventory(self, newCraftedItemQ, newCraftedItem, materialNeededQ1, materialNeeded1, materialNeededQ2, materialNeeded2):
         """
         craftQIn : this is referring to the item quantity that you want to craft
         craftQOut : this is referring to the item quantity that you will use to craft
@@ -102,25 +102,25 @@ class MineCraftGame:
         #thid while loop handles the newly crafted item
         count = 0
         while count < newCraftedItemQ:
-            inventory.append(newCraftedItem)
+            self.inventory.append(newCraftedItem)
             count+= 1
 
         # this while loop handles the first set of materials needed 
         count = 0
         while count < materialNeededQ1:
-            inventory.remove(materialNeeded1)
+            self.inventory.remove(materialNeeded1)
             count += 1
 
         #this while loop handles the SECOND set of material needed
         count = 0
         while count < materialNeededQ2:
-            inventory.remove(materialNeeded2)
+            self.inventory.remove(materialNeeded2)
             count+= 1
 
 
-    def checkInventory():
+    def checkInventory(self):
         result = {}
-        for item in inventory:
+        for item in self.inventory:
             if item in result:
                 result[item] += 1
             else:
@@ -128,12 +128,12 @@ class MineCraftGame:
         return result
 
 
-    def startGame():
+    def startGame(self):
         #start
         print("##################")
         print("welcome " + self.name)
         print("Game Started")
-        print(f"Current inventory: {checkInventory()}")
+        print(f"Current inventory: {self.checkInventory()}")
         print("##################")
 
         continueGame = "y"
@@ -142,16 +142,16 @@ class MineCraftGame:
         #main loop
         while (continueGame == "y"):
             craftTimes+=1
-            item = str(input(f"What item do you want to craft? {VALIDITEMS} : "))
+            item = str(input(f"What item do you want to craft? {self.VALIDITEMS} : "))
             q = int(input("How many do you want to craft? : "))
-            craft(item, q)
-            print(f"Current inventory: {checkInventory()}")
+            self.craft(item, q)
+            print(f"Current inventory: {self.checkInventory()}")
             continueGame = input("Do you want to make another craft? (y/n) : ")
         
         # end game
         print("##################")
         print(f"You crafted {craftTimes} times!")
-        print(f"Current inventory: {checkInventory()}")
+        print(f"Current inventory: {self.checkInventory()}")
         print("Game Ended")
         print("##################")
 
