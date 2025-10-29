@@ -1,31 +1,43 @@
 
 #this is a class
 class MineCraftGame:
-    def __init__(self):
-            #Cheat Cheat
-        """
-        1 wood = 4 planks
-        1 plank = 2 sticks
-        4 planks = 1 crafting table
+    #constructor
+    def __init__(self, name):
+        self.WOOD = "wood"
+        self.PLANK = "plank"
+        self.TABLE = "table"
+        self.STICK = "stick"
+        self.FENCE = "fence"
 
-        1 stick + 2 plank = 1 sword
-        2 sticks + 1 plank = 1 shovel
-        2 sticks + 2 planks = 1 hoe
-        2 sticks + 3 planks = axe
-        """
+        self.SWORD = "sword"
+        self.SHOVEL = "shovel"
+        self.HOE = "hoe"
+        self.AXE = "axe"
+        self.BOWL = "bowl"
 
-        #global
-        WOOD = "wood"
-        PLANK = "plank"
-        TABLE = "table"
-        STICK = "stick"
-        FENCE = "fence"
+        self.VALIDITEMS = [self.WOOD, self.PLANK, self.TABLE, self.STICK, self.SWORD, self.SHOVEL, self.HOE, self.AXE, self.FENCE, self.BOWL]
 
-        SWORD = "sword"
-        SHOVEL = "shovel"
-        HOE = "hoe"
-        AXE = "axe"
-        BOWL = "bowl"
+        self.inventory = [self.WOOD]*32
+
+        self.name = name
+
+    # print cheat cheat
+    def printrecipe(self):
+        print(
+            """
+            1 wood = 4 planks
+            1 plank = 2 sticks
+            4 planks = 1 crafting table
+
+            1 stick + 2 plank = 1 sword
+            2 sticks + 1 plank = 1 shovel
+            2 sticks + 2 planks = 1 hoe
+            2 sticks + 3 planks = axe
+
+            2 sticks + 4 planks = fence
+            3 planks = 4 bowl
+            """
+        )
 
 
         VALIDITEMS = [WOOD, PLANK, TABLE, STICK, SWORD, SHOVEL, HOE, AXE, FENCE, BOWL]
