@@ -39,59 +39,54 @@ class MineCraftGame:
             """
         )
 
-
-        VALIDITEMS = [WOOD, PLANK, TABLE, STICK, SWORD, SHOVEL, HOE, AXE, FENCE, BOWL]
-
-        inventory = [WOOD]*32
-
-    def craft(craftItem, craftQ):
-        if (craftItem in VALIDITEMS):
-            if (craftItem == WOOD):
+    def craft(self, craftItem, craftQ):
+        if (craftItem in self.VALIDITEMS):
+            if (craftItem == self.WOOD):
                 pass        
 
-            elif (craftItem == PLANK):
+            elif (craftItem == self.PLANK):
                 print(f"You need {craftQ/4} wood")
                 #what if craftQ = 6?????????
                 #6/4 = 1.5
                 materialneededQ = craftQ//4
                 newCraftedItemQ = materialneededQ*4
-                updateInventory(newCraftedItemQ, craftItem, materialneededQ, WOOD)
+                self.updateInventory(newCraftedItemQ, craftItem, materialneededQ, self.WOOD)
 
-            elif (craftItem == STICK):
+            elif (craftItem == self.STICK):
                 print(f"You need {craftQ/2} plank")
                 #what if craftQ = 3?
                 # 3/2 = 1.5
                 materialneededQ = craftQ//2
                 newCraftedItemQ = materialneededQ*2
-                updateInventory(newCraftedItemQ, craftItem, materialneededQ, PLANK)
+                self.updateInventory(newCraftedItemQ, craftItem, materialneededQ, self.PLANK)
 
-            elif (craftItem == TABLE):
+            elif (craftItem == self.TABLE):
                 print(f"You need {craftQ*4} plank")
-                updateInventory(craftQ, craftItem, craftQ*4, PLANK)
+                self.updateInventory(craftQ, craftItem, craftQ*4, self.PLANK)
 
 
-            elif (craftItem == SWORD):
+            elif (craftItem == self.SWORD):
                 print(f"You need {craftQ} stick {craftQ*2} plank")
-                updateInventory(craftQ, craftItem, craftQ, STICK, craftQ*2, PLANK)
+                self.updateInventory(craftQ, craftItem, craftQ, self.STICK, craftQ*2, self.PLANK)
 
-            elif (craftItem == SHOVEL):
+            elif (craftItem == self.SHOVEL):
                 print(f"You need {craftQ*2} stick {craftQ} plank")
-                updateInventory(craftQ, craftItem, craftQ*2, STICK, craftQ, PLANK)
+                self.updateInventory(craftQ, craftItem, craftQ*2, self.STICK, craftQ, self.PLANK)
 
-            elif (craftItem == HOE):
+            elif (craftItem == self.HOE):
                 print(f"You need {craftQ*2} stick {craftQ*2} plank")
-                updateInventory(craftQ, craftItem, craftQ*2, STICK, craftQ*2, PLANK)
+                self.updateInventory(craftQ, craftItem, craftQ*2, self.STICK, craftQ*2, self.PLANK)
             
-            elif (craftItem == AXE):
+            elif (craftItem == self.AXE):
                 print(f"You need {craftQ*2} stick {craftQ*3} plank")
-                updateInventory(craftQ, craftItem, craftQ*2, STICK, craftQ*3, PLANK)
+                self.updateInventory(craftQ, craftItem, craftQ*2, self.STICK, craftQ*3, self.PLANK)
             
-            elif (craftItem == FENCE):
+            elif (craftItem == self.FENCE):
                 print(f"You need {craftQ*2} stick {craftQ*4} plank")
-                updateInventory(craftQ, craftItem, craftQ*2, STICK, craftQ*4, PLANK)
-            elif (craftItem == BOWL):
+                self.updateInventory(craftQ, craftItem, craftQ*2, self.STICK, craftQ*4, self.PLANK)
+            elif (craftItem == self.BOWL):
                 print(f"You need {craftQ/4} plank")
-                updateInventory(craftQ, craftItem, craftQ/4, BOWL)
+                self.updateInventory(craftQ, craftItem, craftQ/4, self.BOWL)
         else:
             print("This is NOT a valid item")
         return
