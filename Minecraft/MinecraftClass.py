@@ -92,14 +92,24 @@ class MineCraftGame:
         return
 
 
-    def updateInventory(self, newCraftedItemQ, newCraftedItem, materialNeededQ1, materialNeeded1, materialNeededQ2, materialNeeded2):
+    def updateInventory(self, newCraftedItemQ, newCraftedItem, materialNeededQ1, materialNeeded1, materialNeededQ2 = 0, materialNeeded2 = ""):
         """
         craftQIn : this is referring to the item quantity that you want to craft
         craftQOut : this is referring to the item quantity that you will use to craft
         itemRemove : this is the item name that you need to use to craft
         itemAppend : this is the item name that you want to craft
         """
-        #thid while loop handles the newly crafted item
+
+        result = self.checkInventory()
+
+        if (result.get(materialNeeded1, 0) >= materialNeededQ1 and result.get(materialNeeded2, 0) >= materialNeededQ2):
+            #this while loop handles the newly crafted item
+            count = 0
+            while count < newCraftedItemQ:
+                self.inventory.append(newCraftedItem)
+                count+= 1
+
+        #this while loop handles the newly crafted item
         count = 0
         while count < newCraftedItemQ:
             self.inventory.append(newCraftedItem)
