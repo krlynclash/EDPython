@@ -91,3 +91,9 @@ print(commacount)
 
 #6 how many times did the word "Odilia appear in this article?"
 odilia_count = 0
+for line in data:
+    words = line.split(" ")
+    for word in words:
+        if word == "Odilia":
+            odilia_count += 1
+print(odilia_count)
