@@ -90,6 +90,7 @@ print(non_blank_char_count)
 print(commacount)
 
 #6 how many times did the word "Odilia appear in this article?"
+#no hardcoding, answer is 9
 odilia_count = 0
 for line in data:
     words = line.split(" ")
