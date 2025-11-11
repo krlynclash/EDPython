@@ -21,9 +21,12 @@ for line in data:
 yourschool = "JOSEPH GREENBERG SCHOOL"
 
 
-for line in data:
-    words = line.split(',')
-    for word in words:
-        if word == yourschool:
-            print(word)
-            print(words)
+# for line in data:
+#     # words = line.split(',')
+#     for word in words:
+#         if word == yourschool:
+#             print(word)
+#             print(words)
+#             print(words[8])
+
+import pandas as pd
