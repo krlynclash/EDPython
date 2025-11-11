@@ -1,3 +1,5 @@
+import pandas as pd
+
 #global data
 data= []
 filename = "./School/Schools.csv"
