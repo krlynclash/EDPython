@@ -30,5 +30,3 @@ yourschool = "JOSEPH GREENBERG SCHOOL"
 #             print(word)
 #             print(words)
 #             print(words[8])
-
-import pandas as pd
